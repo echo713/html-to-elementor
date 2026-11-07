@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>__PAGE_TITLE__</title><style>
+*{box-sizing:border-box}body{margin:0;background:#F4F4F5;color:#3F4245;font-family:Arial,"Microsoft YaHei",sans-serif;padding:40px 20px}main{max-width:680px;margin:0 auto;background:#fff;padding:36px;border:1px solid #EAEAEC;border-radius:8px}small{color:#7F715C;letter-spacing:2px}h1{font-size:26px;color:#111518;line-height:1.4}p,li{font-size:15px;line-height:1.9}ol{padding-left:24px}button{background:#7F715C;color:white;border:0;padding:15px 24px;border-radius:3px;font:600 16px Arial,"Microsoft YaHei",sans-serif;cursor:pointer}button:hover{background:#655946}button:focus-visible,textarea:focus-visible{outline:3px solid #111518;outline-offset:4px}#status{min-height:54px;font-size:14px}details{margin-top:22px}summary{cursor:pointer;padding:10px 0}textarea{width:100%;height:130px;margin-top:12px;font-size:12px;padding:12px;border:1px solid #aaa}a{color:#655946}@media(max-width:480px){main{padding:25px}h1{font-size:23px}}</style></head><body><main>
+<small>ELEMENTOR · 一键复制</small><h1>__PAGE_TITLE__</h1><p>普通原生组件 · 中文组件名 · 可编辑内容</p>
+<button id="copy" type="button">复制 Elementor 模块</button><p id="status" role="status" aria-live="polite">点击按钮后，按下面的步骤粘贴。</p>
+<ol><li>打开目标页面的 Elementor 编辑器，滚动到页面最后。</li><li>在底部添加内容的空白区域右键，选择 <strong>Paste from other site / 从其他网站粘贴</strong>。</li><li>出现粘贴提示后，按 <strong>Ctrl + V</strong>。</li><li>预览插入的模块，确认后按你的需要保存。</li></ol>
+<p>使用“从其他网站粘贴”，而不是普通的“粘贴”。</p>
+<details><summary>复制按钮不可用？手动复制</summary><label for="data">点击下面的数据框，按 Ctrl + A，再按 Ctrl + C。</label><textarea id="data" readonly spellcheck="false"></textarea></details>
+<p><a href="https://elementor.com/help/how-do-i-copy-elements-from-one-site-to-another/" target="_blank" rel="noopener">Elementor 官方粘贴说明</a></p>
+</main><script id="payload" type="application/json">__ELEMENTOR_PAYLOAD__</script><script>
+const payload=document.getElementById('payload').textContent;
+document.getElementById('data').value=payload;
+document.getElementById('copy').addEventListener('click',async()=>{
+ const status=document.getElementById('status');
+ try{
+  if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(payload);}
+  else{const t=document.createElement('textarea');t.value=payload;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();if(!ok)throw new Error('Copy unavailable');}
+  status.textContent='已复制。到 Elementor 选择“从其他网站粘贴”，再按 Ctrl + V。';
+ }catch(e){document.querySelector('details').open=true;const t=document.getElementById('data');t.focus();t.select();status.textContent='浏览器未允许自动复制。数据已选中，请按 Ctrl + C。';}
+});
+</script></body></html>

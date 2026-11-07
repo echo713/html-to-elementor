@@ -1,0 +1,4 @@
+interface:
+  display_name: "html-to-elementor"
+  short_description: "将 HTML 转成 Elementor 组件，表格用 HTML、Tab 用原生 Tabs，交付复制页面"
+  default_prompt: "使用 $html-to-elementor 将这个 HTML 转成可编辑的 Elementor 普通组件，Tab 使用 Elementor 原生 Tabs；表格使用独立 HTML 元素，其 CSS 写入该元素的高级 Custom CSS；缺少图片地址时弹出对话输入框让我填写，选择‘否，留空’后再留空，不通过 MCP 到 WordPress 查找图片。提供中文组件名和一键复制页面，不要模板。"
